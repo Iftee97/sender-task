@@ -155,9 +155,12 @@ export default defineComponent({
     const autoSort = () => {
       people.value.sort((a, b) => b.potatoes - a.potatoes);
       clearInterval(intervalId.value);
+
+      const elapsedSeconds = timer.value; // Save the current timer value
       timer.value = 0;
       sortingActive.value = false;
-      alert(`Success! You sorted the list in ${timer.value} seconds.`);
+
+      alert(`Success! You sorted the list in ${elapsedSeconds} seconds.`);
       people.value = [];
     };
 
