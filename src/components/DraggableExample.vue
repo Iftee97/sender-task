@@ -37,7 +37,7 @@ const list = ref([
 ]);
 </script>
 
-<style>
+<style scoped>
 .container {
   display: grid;
   gap: 10px;
