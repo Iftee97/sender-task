@@ -14,7 +14,7 @@
         class="bg-red-500 text-white px-4 py-2 rounded hover:bg-opacity-80"
         @click="stopSorting"
       >
-        Stop Sorting
+        Stop Sorting!
       </button>
     </div>
 
@@ -41,26 +41,35 @@
         <span>{{ people.length }} people in the list</span>
       </div>
 
-      <!-- <table class="w-full border-collapse">
+      <!-- <table class="w-full bg-white rounded-lg overflow-hidden shadow">
         <thead>
-          <tr class="bg-gray-200">
-            <th class="border px-4 py-2 w-1/3">Email</th>
-            <th class="border px-4 py-2 w-1/3 text-center">Potatoes</th>
-            <th class="border px-4 py-2 w-1/3">Name</th>
+          <tr class="bg-gray-50 border-b">
+            <th class="text-left px-6 py-3 text-sm font-medium text-gray-500">
+              Email
+            </th>
+            <th class="text-left px-6 py-3 text-sm font-medium text-gray-500">
+              Potatoes
+            </th>
+            <th class="text-left px-6 py-3 text-sm font-medium text-gray-500">
+              Name
+            </th>
           </tr>
         </thead>
         <VueDraggable v-model="people" tag="tbody">
           <tr
             v-for="person in people"
             :key="person.email"
-            class="bg-white hover:bg-gray-100 cursor-pointer"
+            class="border-b last:border-b-0 hover:bg-gray-50 transition-colors duration-200"
           >
-            <td class="border px-4 py-2">{{ person.email }}</td>
-            <td class="border px-4 py-2 text-center">{{ person.potatoes }}</td>
-            <td class="border px-4 py-2">{{ person.name }}</td>
+            <td class="px-6 py-4 text-sm text-gray-900">{{ person.email }}</td>
+            <td class="px-6 py-4 text-sm text-gray-900">
+              {{ person.potatoes }}
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-900">{{ person.name }}</td>
           </tr>
         </VueDraggable>
       </table> -->
+
       <table class="w-full bg-white rounded-lg overflow-hidden shadow">
         <thead>
           <tr class="bg-gray-50 border-b">
