@@ -1,5 +1,5 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import DraggableSample from "./components/DraggableSample.vue";
+import DraggableExample from "./components/DraggableExample.vue";
 
 createApp(App).mount("#app");

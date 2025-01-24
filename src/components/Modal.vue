@@ -8,20 +8,20 @@
         <input
           type="number"
           v-model="count"
-          min="20"
-          max="100"
+          :min="MIN_COUNT"
+          :max="MAX_COUNT"
           class="border border-gray-300 rounded p-2 w-full mb-4"
         />
         <div class="flex justify-end space-x-2">
           <button
             type="submit"
-            class="bg-blue-500 text-white px-4 py-2 rounded"
+            class="bg-orange-400 hover:bg-orage-500 text-white px-4 py-1 rounded text-sm"
           >
             Start
           </button>
           <button
             type="button"
-            class="bg-gray-300 px-4 py-2 rounded"
+            class="bg-red-400 hover:bg-red-500 px-4 py-1 rounded text-sm text-white"
             @click="onClose"
           >
             Close
@@ -32,26 +32,22 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
+<script setup>
+import { ref } from "vue";
 
-export default defineComponent({
-  name: "Modal",
+const MIN_COUNT = 20;
+const MAX_COUNT = 100;
 
-  props: ["onClose", "onStart"],
+const props = defineProps(["onClose", "onStart"]);
+const count = ref(MIN_COUNT);
 
-  setup(props) {
-    const count = ref(20);
-
-    const handleStart = () => {
-      if (count.value >= 20 && count.value <= 100) {
-        props.onStart(count.value);
-      } else {
-        alert("Please enter a number between 20 and 100.");
-      }
-    };
-
-    return { count, handleStart };
-  },
-});
+const handleStart = () => {
+  if (count.value >= MIN_COUNT && count.value <= MAX_COUNT) {
+    props.onStart(count.value);
+  } else {
+    alert(`Please enter a number between ${MIN_COUNT} and ${MAX_COUNT}.`);
+  }
+};
 </script>
+
+<style scoped></style>

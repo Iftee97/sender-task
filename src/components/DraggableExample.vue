@@ -13,41 +13,28 @@
   </div>
 </template>
 
-<script>
-import { defineComponent, ref } from "vue";
-
+<script setup>
+import { ref } from "vue";
 import { VueDraggable } from "vue-draggable-plus";
 
-export default defineComponent({
-  name: "DraggableSample",
-
-  components: {
-    VueDraggable,
+const list = ref([
+  {
+    name: "Joao",
+    id: 1,
   },
-
-  setup() {
-    const list = ref([
-      {
-        name: "Joao",
-        id: 1,
-      },
-      {
-        name: "Jean",
-        id: 2,
-      },
-      {
-        name: "Johanna",
-        id: 3,
-      },
-      {
-        name: "Juan",
-        id: 4,
-      },
-    ]);
-
-    return { list };
+  {
+    name: "Jean",
+    id: 2,
   },
-});
+  {
+    name: "Johanna",
+    id: 3,
+  },
+  {
+    name: "Juan",
+    id: 4,
+  },
+]);
 </script>
 
 <style>
