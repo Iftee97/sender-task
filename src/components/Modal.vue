@@ -35,8 +35,8 @@
 <script setup>
 import { ref } from "vue";
 
-const MIN_COUNT = 20;
-const MAX_COUNT = 100;
+const MIN_COUNT = 20; // default: 20
+const MAX_COUNT = 100; // default: 100
 
 const props = defineProps(["onClose", "onStart"]);
 const count = ref(MIN_COUNT);
