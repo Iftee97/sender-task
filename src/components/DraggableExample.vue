@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-4 max-w-4xl mx-auto">
     <VueDraggable
       v-model="list"
       animation="150"

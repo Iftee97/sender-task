@@ -49,5 +49,3 @@ const handleStart = () => {
   }
 };
 </script>
-
-<style scoped></style>
