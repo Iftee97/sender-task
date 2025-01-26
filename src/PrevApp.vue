@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { ref, onUnmounted } from "vue";
+import { ref, watch, onUnmounted } from "vue";
 import Modal from "./components/Modal.vue";
 import { VueDraggable } from "vue-draggable-plus";
 
@@ -134,10 +134,17 @@ const autoSort = () => {
   }, 50);
 };
 
-const checkOrder = () => {
-  const isSorted = people.value.every((person, i, arr) => {
+const isListSorted = () => {
+  return people.value.every((person, i, arr) => {
     return i === 0 || arr[i - 1].potatoes >= person.potatoes;
   });
+};
+
+const checkOrder = () => {
+  // const isSorted = people.value.every((person, i, arr) => {
+  //   return i === 0 || arr[i - 1].potatoes >= person.potatoes;
+  // });
+  const isSorted = isListSorted();
   if (isSorted) {
     clearInterval(intervalId.value);
     const elapsedSeconds = timer.value;
@@ -152,6 +159,20 @@ const checkOrder = () => {
     alert("The list is not sorted correctly. Keep trying");
   }
 };
+
+watch(people, () => {
+  if (sortingActive.value && isListSorted()) {
+    clearInterval(intervalId.value);
+    const elapsedSeconds = timer.value;
+    sortingActive.value = false;
+
+    setTimeout(() => {
+      alert(`Success! You sorted the list in ${elapsedSeconds} seconds.`);
+      people.value = [];
+      timer.value = 0;
+    }, 50);
+  }
+});
 
 onUnmounted(() => {
   clearInterval(intervalId.value);
