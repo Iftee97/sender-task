@@ -115,13 +115,6 @@ const closeModal = () => (modalOpen.value = false);
 const startSorting = (count) => {
   const data = generateRandomData(count);
   tables.value = splitIntoTables(data);
-
-  // Shuffle the tables array to randomize their order
-  for (let i = tables.value.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [tables.value[i], tables.value[j]] = [tables.value[j], tables.value[i]];
-  }
-
   modalOpen.value = false;
   timer.value = 0;
   sortingActive.value = true;
