@@ -1,7 +1,9 @@
 <template>
   <div class="p-4 max-w-4xl mx-auto">
     <div class="flex items-center justify-between">
-      <h1 class="text-2xl font-bold mb-4">Sorting Training System</h1>
+      <h1 class="text-2xl font-bold mb-4">
+        Sorting Training System [Sortable Tables]
+      </h1>
       <button
         v-if="!sortingActive"
         class="bg-[#FF8D00] text-white px-4 py-2 rounded hover:bg-opacity-80"
