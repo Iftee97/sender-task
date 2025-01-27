@@ -23,7 +23,7 @@
     <Modal v-if="modalOpen" :on-close="closeModal" :on-start="startSorting" />
 
     <div v-if="tables.length > 0">
-      <div class="flex space-x-4">
+      <!-- <div class="flex space-x-4">
         <button
           class="bg-blue-500 text-white px-4 py-2 rounded"
           @click="checkOrder"
@@ -36,7 +36,7 @@
         >
           Auto Sort
         </button>
-      </div>
+      </div> -->
 
       <div class="flex items-center justify-between p-4 bg-neutral-50 mt-4">
         <span class="text-gray-700">Time: {{ timer }} seconds</span>
