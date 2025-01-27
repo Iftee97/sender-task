@@ -1,24 +1,24 @@
 <template>
   <div class="p-4 max-w-4xl mx-auto">
-    <div class="flex space-x-4 mb-6 border-b">
+    <div class="flex bg-white rounded-lg shadow mb-6">
       <button
         @click="activeTab = 'sortable'"
-        class="px-4 py-2 -mb-px"
+        class="flex-1 px-6 py-3 text-sm font-medium rounded-l-lg"
         :class="
           activeTab === 'sortable'
-            ? 'text-blue-600 border-b-2 border-blue-600 font-medium'
-            : 'text-gray-500 hover:text-gray-700'
+            ? 'bg-white text-black border-b-2 border-black'
+            : 'text-gray-500 hover:text-gray-700 bg-gray-50'
         "
       >
         Sortable Tables
       </button>
       <button
         @click="activeTab = 'paginated'"
-        class="px-4 py-2 -mb-px"
+        class="flex-1 px-6 py-3 text-sm font-medium rounded-r-lg"
         :class="
           activeTab === 'paginated'
-            ? 'text-blue-600 border-b-2 border-blue-600 font-medium'
-            : 'text-gray-500 hover:text-gray-700'
+            ? 'bg-white text-black border-b-2 border-black'
+            : 'text-gray-500 hover:text-gray-700 bg-gray-50'
         "
       >
         Paginated Table
