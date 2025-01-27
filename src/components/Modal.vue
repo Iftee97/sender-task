@@ -28,23 +28,27 @@
             :max="MAX_COUNT"
             class="border border-gray-300 rounded-lg p-3 w-full mb-6 text-lg"
           />
-
-          <div class="flex justify-end space-x-3" id="modal-footer">
-            <button
-              type="button"
-              @click="props.onClose"
-              class="px-6 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              class="px-6 py-2 rounded-lg bg-[#ff6b2c] hover:bg-[#ff5a15] text-white font-medium"
-            >
-              Start
-            </button>
-          </div>
         </form>
+      </div>
+
+      <div
+        class="flex justify-end space-x-3 px-4 py-4 border-t border-gray-200"
+        id="modal-footer"
+      >
+        <button
+          type="button"
+          @click="props.onClose"
+          class="px-6 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          @click="handleStart"
+          class="px-6 py-2 rounded-lg bg-[#ff6b2c] hover:bg-[#ff5a15] text-white font-medium"
+        >
+          Start
+        </button>
       </div>
     </div>
   </div>
