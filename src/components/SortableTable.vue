@@ -1,12 +1,17 @@
 <template>
   <div class="mb-4 bg-white rounded-lg overflow-hidden shadow">
-    <div
-      class="flex items-center justify-between p-4 bg-gray-50 cursor-pointer"
-      @click="toggleCollapsed"
-    >
-      <h3 class="font-medium">Table {{ tableIndex + 1 }}</h3>
-      <span class="text-sm text-gray-700"> Range: {{ potatoRange }} </span>
-      <button class="text-gray-500 hover:text-gray-700">
+    <div class="flex items-center justify-between p-4 bg-gray-50">
+      <h3 class="font-medium flex items-center gap-3">
+        <div class="drag-handle cursor-pointer">
+          <GripVertical class="h-4 w-4" />
+        </div>
+        Table {{ tableIndex + 1 }}
+      </h3>
+      <span class="text-sm text-gray-700">Range: {{ potatoRange }}</span>
+      <button
+        class="text-gray-500 hover:text-gray-700 cursor-pointer"
+        @click="toggleCollapsed"
+      >
         {{ isCollapsed ? "Expand" : "Collapse" }}
       </button>
     </div>
@@ -47,6 +52,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import { VueDraggable } from "vue-draggable-plus";
+import { GripVertical } from "lucide-vue-next";
 
 const props = defineProps({
   tableData: {

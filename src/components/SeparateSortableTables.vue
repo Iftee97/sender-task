@@ -43,7 +43,7 @@
         <span>{{ totalPeople }} people in {{ tables.length }} tables</span>
       </div>
 
-      <VueDraggable v-model="tables" class="space-y-4">
+      <VueDraggable v-model="tables" class="space-y-4" handle=".drag-handle">
         <SortableTable
           v-for="(table, index) in tables"
           :key="index"
