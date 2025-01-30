@@ -1,9 +1,9 @@
 <template>
   <div class="p-4 max-w-4xl mx-auto">
-    <div class="flex bg-white rounded-lg shadow mb-6">
+    <div class="flex bg-white shadow mb-6">
       <button
         @click="activeTab = 'sortable'"
-        class="flex-1 px-6 py-3 text-sm font-medium rounded-l-lg"
+        class="flex-1 px-6 py-3 text-sm font-medium"
         :class="
           activeTab === 'sortable'
             ? 'bg-white text-black border-b-2 border-black'
@@ -14,7 +14,7 @@
       </button>
       <button
         @click="activeTab = 'paginated'"
-        class="flex-1 px-6 py-3 text-sm font-medium rounded-r-lg"
+        class="flex-1 px-6 py-3 text-sm font-medium"
         :class="
           activeTab === 'paginated'
             ? 'bg-white text-black border-b-2 border-black'
