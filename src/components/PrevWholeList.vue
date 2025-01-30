@@ -86,19 +86,19 @@ const intervalId = ref(null);
 
 const generateRandomData = (count) => {
   const data = [];
-  const usedPotatoes = new Set();
+  const availablePotatoes = Array.from({ length: 100 }, (_, i) => i + 1);
+
   for (let i = 0; i < count; i++) {
-    let potatoes;
-    do {
-      potatoes = Math.floor(Math.random() * 100) + 1;
-    } while (usedPotatoes.has(potatoes));
-    usedPotatoes.add(potatoes);
+    const randomIndex = Math.floor(Math.random() * availablePotatoes.length);
+    const potatoes = availablePotatoes.splice(randomIndex, 1)[0]; // Remove and get value
+
     data.push({
       email: `user${i}@example.com`,
       potatoes,
       name: `User ${i}`,
     });
   }
+
   return data;
 };
 

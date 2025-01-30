@@ -185,24 +185,25 @@ const generateRandomData = (count) => {
     const minValue = 100 - (tableIndex + 1) * rangeSize;
     const maxValue = 100 - tableIndex * rangeSize;
     const tableCount = Math.min(tableSize, count - tableIndex * tableSize);
-    const usedPotatoes = new Set();
+
+    // Generate unique potato values for this table
+    const potatoValues = Array.from(
+      { length: maxValue - minValue + 1 },
+      (_, i) => minValue + i
+    )
+      .sort(() => Math.random() - 0.5) // Shuffle array
+      .slice(0, tableCount); // Pick required amount
 
     for (let i = 0; i < tableCount; i++) {
-      let potatoes;
-      do {
-        potatoes =
-          Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-      } while (usedPotatoes.has(potatoes));
-      usedPotatoes.add(potatoes);
-
       const globalIndex = tableIndex * tableSize + i;
       data.push({
         email: `user${globalIndex}@example.com`,
-        potatoes,
+        potatoes: potatoValues[i],
         name: `User ${globalIndex}`,
       });
     }
   }
+
   return data;
 };
 

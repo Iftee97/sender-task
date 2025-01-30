@@ -82,15 +82,25 @@ const generateRandomData = (count) => {
     const minValue = 100 - (tableIndex + 1) * rangeSize;
     const maxValue = 100 - tableIndex * rangeSize;
     const tableCount = Math.min(tableSize, count - tableIndex * tableSize);
-    const usedPotatoes = new Set();
 
+    // Generate a unique range of values
+    const availablePotatoes = Array.from(
+      { length: maxValue - minValue + 1 },
+      (_, i) => minValue + i
+    );
+
+    // Shuffle the array to randomize selection
+    for (let i = availablePotatoes.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [availablePotatoes[i], availablePotatoes[j]] = [
+        availablePotatoes[j],
+        availablePotatoes[i],
+      ];
+    }
+
+    // Assign shuffled values to users
     for (let i = 0; i < tableCount; i++) {
-      let potatoes;
-      do {
-        potatoes =
-          Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-      } while (usedPotatoes.has(potatoes));
-      usedPotatoes.add(potatoes);
+      const potatoes = availablePotatoes[i]; // Take from shuffled array
 
       const globalIndex = tableIndex * tableSize + i;
       data.push({
